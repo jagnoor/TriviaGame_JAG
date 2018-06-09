@@ -13,16 +13,16 @@ $.fn.trivia = function() {
     _t.questions = [{
         question: "Which number should come next in the pattern? 37, 34, 31, 28 ",
         choices: ["25", "38", "44", "41"],
-        images: ["../images/"], // add a image 
+        images: ["../images/"], // add a image if it feels liek 
         correct: 0
     }, {
-        question: "After being on earth, where did Hercules first meet his  father Zeus?",
-        choices: ["Mount Olympus", "Greece", "In the Temple of Zeus", "Elysian   Fields"],
-        correct: 2
+        question: "What is the capital of Burundi ? ",
+        choices: ["Bujumbura", "Djibouti", "Mogadishu", "Asmara"],
+        correct: 0
 
     }, {
-        question: "During the ballroom scene of Beauty & the Beast, what color is Belle’s Gown?",
-        choices: ["Yellow", "Blue", "Gold", "White"],
+        question: "What is the longest River in the world?",
+        choices: ["Nile", "Yangtze", "Amazon", "Mississippi"],
         correct: 2
 
     }, 
