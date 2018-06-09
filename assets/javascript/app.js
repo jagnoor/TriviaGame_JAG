@@ -1,19 +1,34 @@
+//Display questions with a timer
+// display options 
+//capture results
+//evaluate result for correct or incorrect 
+// update counter for correct and incorrect 
+// dispaly result 
+// repeat the above till all questions run out 
+// display final result 
+// options to restart game 
+// varibales i need 
+// hold the questions 
+
+
+
 
 
 $.fn.trivia = function() {
-    var _t = this;
-    _t.userPick = null;
-    _t.answers = {
+    var _t = this;    //identifies the thing clicked 
+    _t.userPick = null; // capturs the user answer 
+    _t.answers = {  //keeps track of the result 
         correct: 0,
         incorrect: 0
     };
-    _t.images = null;
-    _t.count = 30;
-    _t.current = 0;
-    _t.questions = [{
+    _t.images = null;  // if i feel like adding images 
+    _t.count = 30; // time count to answer thr question 
+    _t.current = 0; // start arrray for the question
+
+    _t.questions = [{  // object for questions - target 10 questions ..
         question: "Which number should come next in the pattern? 37, 34, 31, 28 ",
         choices: ["25", "38", "44", "41"],
-        images: ["../images/"], // add a image if it feels liek 
+        images: ["../images/"], // add a image if it feels like 
         correct: 0
     }, {
         question: "What is the capital of Burundi ? ",
@@ -29,7 +44,7 @@ $.fn.trivia = function() {
     ];
 
     _t.ask = function() {
-        if (_t.questions[_t.current]) {
+        if (_t.questions[_t.current]) { // starts at 
             $("#timer").html("Time remaining: " + "00:" + _t.count + " secs");
             $("#question_div").html(_t.questions[_t.current].question);
             var choicesArr = _t.questions[_t.current].choices;
