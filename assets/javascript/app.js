@@ -12,8 +12,6 @@
 
 
 
-
-
 $.fn.trivia = function() {
     var _t = this;    //identifies the thing clicked 
     _t.userPick = null; // capturs the user answer 
@@ -22,7 +20,7 @@ $.fn.trivia = function() {
         incorrect: 0
     };
     _t.images = null;  // if i feel like adding images 
-    _t.count = 30; // time count to answer thr question 
+    _t.count = 20; // time count to answer thr question 
     _t.current = 0; // start arrray for the question
 
     _t.questions = [{  // object for questions - target 10 questions ..
@@ -56,7 +54,7 @@ $.fn.trivia = function() {
                 button.attr('data-id', i);
                 $('#choices_div').append(button);
             }
-            window.triviaCounter = setInterval(_t.timer, 1000);
+            window.triviaCounter = setInterval(_t.timer, 1000); // count down in one sec interval 
         } else {
             $('body').append($('<div />', {
                 text: 'Unanswered: ' + (
@@ -66,10 +64,10 @@ $.fn.trivia = function() {
             $('#start_button').text('Restart').appendTo('body').show();
         }
     };
-    _t.timer = function() {
-        _t.count--;
-        if (_t.count <= 0) {
-            setTimeout(function() {
+    _t.timer = function() { 
+        _t.count--;  // count down from 20 
+        if (_t.count <= 0) { 
+            setTimeout(function() { // Display an alert box after _t.next + 1000 (in _t.next func)  :
                 _t.nextQ();
             });
 
