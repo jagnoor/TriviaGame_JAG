@@ -12,20 +12,18 @@
 
 
 
-
-
-$.fn.trivia = function() {
-    var _t = this;    //identifies the thing clicked 
-    _t.userPick = null; // capturs the user answer 
-    _t.answers = {  //keeps track of the result 
+$.fn.trivia = function() {   //$ binds a function to the document.ready event.
+    var ThisThing = this;    //identifies the thing clicked 
+    ThisThing.userPick = null; // capturs the user answer 
+    ThisThing.answers = {  //keeps track of the result 
         correct: 0,
         incorrect: 0
     };
-    _t.images = null;  // if i feel like adding images 
-    _t.count = 30; // time count to answer thr question 
-    _t.current = 0; // start arrray for the question
+    ThisThing.images = null;  // if i feel like adding images 
+    ThisThing.count = 20; // time count to answer thr question 
+    ThisThing.current = 0; // start arrray for the question
 
-    _t.questions = [{  // object for questions - target 10 questions ..
+    ThisThing.questions = [{  // object for questions - target 10 questions ..
         question: "Which number should come next in the pattern? 37, 34, 31, 28 ",
         choices: ["25", "38", "44", "41"],
         images: ["../images/"], // add a image if it feels like 
@@ -43,11 +41,11 @@ $.fn.trivia = function() {
     }, 
     ];
 
-    _t.ask = function() {
-        if (_t.questions[_t.current]) { // starts at 
-            $("#timer").html("Time remaining: " + "00:" + _t.count + " secs");
-            $("#question_div").html(_t.questions[_t.current].question);
-            var choicesArr = _t.questions[_t.current].choices;
+    ThisThing.ask = function() {
+        if (ThisThing.questions[ThisThing.current]) { // starts at 
+            $("#timer").html("Time remaining: " + "00:" + ThisThing.count + " secs");
+            $("#question_div").html(ThisThing.questions[ThisThing.current].question);
+            var choicesArr = ThisThing.questions[ThisThing.current].choices;
             var buttonsArr = [];
 
             for (var i = 0; i < choicesArr.length; i++) {
@@ -56,50 +54,50 @@ $.fn.trivia = function() {
                 button.attr('data-id', i);
                 $('#choices_div').append(button);
             }
-            window.triviaCounter = setInterval(_t.timer, 1000);
+            window.triviaCounter = setInterval(ThisThing.timer, 1000); // count down in one sec interval 
         } else {
             $('body').append($('<div />', {
                 text: 'Unanswered: ' + (
-                    _t.questions.length - (_t.answers.correct + _t.answers.incorrect)),
+                    ThisThing.questions.length - (ThisThing.answers.correct + ThisThing.answers.incorrect)),
                 class: 'result'
             }));
             $('#start_button').text('Restart').appendTo('body').show();
         }
     };
-    _t.timer = function() {
-        _t.count--;
-        if (_t.count <= 0) {
-            setTimeout(function() {
-                _t.nextQ();
+    ThisThing.timer = function() { 
+        ThisThing.count--;  // count down from 20 
+        if (ThisThing.count <= 0) { 
+            setTimeout(function() { // Display an alert box after ThisThing.next + 1000 (in ThisThing.next func)  :
+                ThisThing.nextQ();
             });
 
         } else {
-            $("#timer").html("Time remaining: " + "00:" + _t.count + " secs");
+            $("#timer").html("Time remaining: " + "00:" + ThisThing.count + " secs");
         }
     };
-    _t.nextQ = function() {
-        _t.current++;
+    ThisThing.nextQ = function() {
+        ThisThing.current++;
         clearInterval(window.triviaCounter);
-        _t.count = 30;
+        ThisThing.count = 30;
         $('#timer').html("");
         setTimeout(function() {
-            _t.cleanUp();
-            _t.ask();
+            ThisThing.cleanUp();
+            ThisThing.ask();
         }, 1000)
     };
-    _t.cleanUp = function() {
+    ThisThing.cleanUp = function() {
         $('div[id]').each(function(item) {
             $(this).html('');
         });
-        $('.correct').html('Correct answers: ' + _t.answers.correct);
-        $('.incorrect').html('Incorrect answers: ' + _t.answers.incorrect);
+        $('.correct').html('Correct answers: ' + ThisThing.answers.correct);
+        $('.incorrect').html('Incorrect answers: ' + ThisThing.answers.incorrect);
     };
-    _t.answer = function(correct) {
+    ThisThing.answer = function(correct) {
         var string = correct ? 'correct' : 'incorrect';
-        _t.answers[string]++;
-        $('.' + string).html(string + ' answers: ' + _t.answers[string]);
+        ThisThing.answers[string]++;
+        $('.' + string).html(string + ' answers: ' + ThisThing.answers[string]);
     };
-    return _t;
+    return ThisThing;
 };
  
 // Trivia Function ends (fun of having first calss functions) 
@@ -116,16 +114,16 @@ $("#start_button").click(function() {
 
 $('#choices_div').on('click', 'button', function(e) {
     var userPick = $(this).data("id"),
-        _t = Trivia || $(window).trivia(),
-        index = _t.questions[_t.current].correct,
-        correct = _t.questions[_t.current].choices[index];
+        ThisThing = Trivia || $(window).trivia(),
+        index = ThisThing.questions[ThisThing.current].correct,
+        correct = ThisThing.questions[ThisThing.current].choices[index];
 
     if (userPick !== index) {
         $('#choices_div').text("Wrong Answer! The correct answer was: " + correct);
-        _t.answer(false);
+        ThisThing.answer(false);
     } else {
         $('#choices_div').text("Correct!!! The correct answer was: " + correct);
-        _t.answer(true);
+        ThisThing.answer(true);
     }
-    _t.nextQ();
+    ThisThing.nextQ();
 });
