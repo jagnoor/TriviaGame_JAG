@@ -1,86 +1,77 @@
 
-    <!-- Starter HTML file.. -->
+<!-- Starter HTML file.. -->
 
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>So you think you are SMART !!! </title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>So you think you are SMART !!! </title>
 
-        <!-- All the libraries and their tags -->
-         <!-- CSS Reset -->
-         <!-- <link href="assets/css/reset.css" rel="stylesheet"> -->
-        <!-- Custom 
-        <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>  -->
-        <!-- CSS Materialize -->      
-        <!-- <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>        
-        <!-- Bootstrap -->
-         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">      
-        <!-- Font Awesome Fonts -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
-    
-    </head>
-      <body>
+<!-- All the libraries and their tags -->
+<!-- CSS Reset -->
+<!-- <link href="assets/css/reset.css" rel="stylesheet"> -->
+<!-- Custom 
+<link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>  -->
+<!-- CSS Materialize -->      
+<!-- <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>        
+<!-- Bootstrap -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">      
+<!-- Font Awesome Fonts -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<!-- Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
 
+</head>
+<body>
 
-       
-          <div class="jumbotron">
-              <h1 class="display-3 text-center">So you think you are SMART </h1>
-              <h2 class="display-6 text-left">Well, think again...</h2>
-              <hr class="display-8 text-center">
-              <h2>Answer these 10 questions to find out!!!</h2>
-              <button type="button" class="btn btn-success btn-lg" id="start_button">Click on this button to start the game</button>
-            </div>
+  <div class="jumbotron align-center">
+    <h1 class="display-3 text-center">So you think you are SMART </h1>
+    <h2 class="display-6 text-center">Well, think again... </h2>
+    <h2 class="display-6 text-center">Answer these 10 questions to find out!!!</h2>
+    <hr class="display-8 text-center">
+    <h2> ...................................................................</h2>
+    <button type="button" class="btn btn-danger btn-lg align-center" id="start_button">START THE GAME </button>
+  </div>
 
-        <!-- bootstrap for -->
-
-        
-           
-            <div id="timer"></div>
-            <div id="question_div"></div>
-            <div id="choices_div"></div>
-            <div class="correct"></div>
-            <div class="incorrect"></div>
-         
+  <!-- bootstrap for -->
 
 
+  <div class="container">
+    <div class="card" style="width: 60rem;">
+      <div class="card-body text-primary">
 
-        
-            <style>
-            
-            div {
-              margin-bottom: 20px;
-            }
-            .correct, .incorrect {
-              text-transform: capitalize;
-            }
-          
-            .jumbotron {
+        <div id="timer"></div>
+        <div id="question_div"></div>
+        <div id="choices_div"></div>
+        <div class="correct"></div>
+        <div class="incorrect"></div>
 
-              background-color: #D9CEB2;
-            }
-
-          </style>
-
-        
-        <!-- jQuery CDN 3.3.1 -->
-        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>     
-        <script src='assets/javascript/app.js'></script>
-        
-        <!--  Scripts
-        <script src="assets/javascript/materialize.js"></script>
-        <script src="assets/javascript/init.js"></script>
-
-        -->
+      </div>
+    </div>
+  </div>
 
 
-      
-      </body>
-    </html>
+
+  <style> 
+  div {margin-bottom: 30px; font-family: 'Josefin Slab', serif; font-size: 1.04em;}
+  .correct, .incorrect {text-transform: capitalize;}         
+  .jumbotron {background-color: #D9CEB2;} 
+  </style>
+
+
+<!-- jQuery CDN 3.3.1 -->
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>     
+<script src='assets/javascript/app.js'></script>
+
+<!--  Scripts
+<script src="assets/javascript/materialize.js"></script>
+<script src="assets/javascript/init.js"></script>
+-->
+
+</body>
+</html>
     
 
 
