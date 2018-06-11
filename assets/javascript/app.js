@@ -19,25 +19,56 @@ $.fn.trivia = function() {   //$ binds a function to the document.ready event.
         correct: 0,
         incorrect: 0
     };
-    ThisThing.images = null;  // if i feel like adding images 
-    ThisThing.count = 20; // time count to answer thr question 
+    ThisThing.images = null;  // if i feel like adding images, i probally won't its 6/11 already..
+    ThisThing.count = 30; // time count to answer thr question 
     ThisThing.current = 0; // start arrray for the question
 
-    ThisThing.questions = [{  // object for questions - target 10 questions ..
+    ThisThing.questions = [ {
+        question: "What is the capital of Burundi ? ",
+        choices: ["Bujumbura", "Djibouti", "Mogadishu", "Asmara"],
+        correct: 0
+    
+    }, {  // object for questions - target 10 questions ..
         question: "Which number should come next in the pattern? 37, 34, 31, 28 ",
         choices: ["25", "38", "44", "41"],
         images: ["../images/"], // add a image if it feels like 
         correct: 0
-    }, {
-        question: "What is the capital of Burundi ? ",
-        choices: ["Bujumbura", "Djibouti", "Mogadishu", "Asmara"],
-        correct: 0
-
-    }, {
+    },
+     {
         question: "What is the longest River in the world?",
         choices: ["Nile", "Yangtze", "Amazon", "Mississippi"],
         correct: 2
-
+    
+    }, 
+    {
+        question: "When World War 1 was end?",
+        choices: ["October 12, 1918", "November 13, 1918", "November 11, 1918", "December 12, 1918"],
+        correct: 2
+    
+    }, 
+    {
+        question: "Which is the largest city of South Africa?",
+        choices: ["Johannesburg", "Pretoria", "Cape Town", "Durban"],
+        correct: 0
+    
+    }, 
+    {
+        question: "World’s first artificial satellite was?",
+        choices: ["Sputnik II", "Explorer 3", "Explorer 1", "Sputnik I"],
+        correct: 3
+    
+    }, 
+    {
+        question: "Lightning conductors are made up of what?",
+        choices: ["24k Gold", "Copper", "bronze", "silver"],
+        correct: 1
+    
+    }, 
+    {
+        question: "Which vitamin is considered to be a hormone? Vitamin - " ,
+        choices: ["D", "A", "C", "B12"],
+        correct: 0
+    
     }, 
     ];
 
@@ -56,15 +87,15 @@ $.fn.trivia = function() {   //$ binds a function to the document.ready event.
             }
             window.triviaCounter = setInterval(ThisThing.timer, 1000); // count down in one sec interval 
         } else {
-            $('body').append($('<div />', {
+            $('.card-body').append($('<div />', {
                 text: 'Unanswered: ' + (
                     ThisThing.questions.length - (ThisThing.answers.correct + ThisThing.answers.incorrect)),
                 class: 'result'
             }));
-            $('#start_button').text('Restart').appendTo('body').show();
+            $('#start_button').text('Restart').appendTo('.card-body').show();
         }
     };
-    ThisThing.timer = function() { 
+    ThisThing.timer = function() {   //Makes the time
         ThisThing.count--;  // count down from 20 
         if (ThisThing.count <= 0) { 
             setTimeout(function() { // Display an alert box after ThisThing.next + 1000 (in ThisThing.next func)  :
@@ -77,13 +108,13 @@ $.fn.trivia = function() {   //$ binds a function to the document.ready event.
     };
     ThisThing.nextQ = function() {
         ThisThing.current++;
-        clearInterval(window.triviaCounter);
+        clearInterval(window.triviaCounter); //stops the timer 
         ThisThing.count = 30;
         $('#timer').html("");
         setTimeout(function() {
             ThisThing.cleanUp();
             ThisThing.ask();
-        }, 1000)
+        }, 3000)
     };
     ThisThing.cleanUp = function() {
         $('div[id]').each(function(item) {
@@ -107,7 +138,7 @@ var Trivia;
 $("#start_button").click(function() {
     $(this).hide();
     $('.result').remove();
-    $('div').html('');
+   
     Trivia = new $(window).trivia();
     Trivia.ask();
 });
